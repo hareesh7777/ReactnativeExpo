@@ -1,4 +1,5 @@
 import { rMS } from "@/utils/Theme";
+import { Link } from "expo-router";
 import { useState } from "react";
 import {
   SafeAreaView,
@@ -80,6 +81,7 @@ export default function Index() {
         showCloseIcon={false}
         showProgressBar={false}
       />
+      {/* <Link href={"/aadlist"}>Go to simple task</Link> */}
       <TextInput
         value={textValue}
         placeholder="Enter text here"
@@ -108,6 +110,7 @@ const styles = StyleSheet.create({
     // margin: rMS(10),
     alignSelf: "center",
     borderRadius: rMS(5),
+    marginBottom: rMS(5)
   },
   renderList: {
     flexDirection: "row",
@@ -116,6 +119,7 @@ const styles = StyleSheet.create({
     margin: rMS(10),
     alignItems: "center",
     flex: 1,
+    gap: 5,
   },
   textItem: {
     fontSize: rMS(14),
