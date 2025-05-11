@@ -1,4 +1,5 @@
 import { rMS } from "@/utils/Theme";
+import { Link } from "expo-router";
 import { useState } from "react";
 import {
   SafeAreaView,
@@ -16,6 +17,7 @@ export default function Index() {
   const [list, setList] = useState<any>([]);
   const [editText, setEditText] = useState("");
   const [edit, setEdit] = useState(null);
+  const [text, setText] = useState('')
 
   const addToList = () => {
     if (textValue.length > 0) {
@@ -80,6 +82,7 @@ export default function Index() {
         showCloseIcon={false}
         showProgressBar={false}
       />
+      {/* <Link href={"/aadlist"}>Go to simple task</Link> */}
       <TextInput
         value={textValue}
         placeholder="Enter text here"
@@ -87,6 +90,7 @@ export default function Index() {
         onChangeText={(text) => setTextValue(text)}
       />
       <Button title="Submit" onPress={addToList} />
+      <Text>{text}</Text>
       <View>
         <FlatList data={list} renderItem={renderItem} />
       </View>
@@ -97,6 +101,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: rMS(10)
     // justifyContent: "center",
     // alignItems: "center",
   },
@@ -108,6 +113,7 @@ const styles = StyleSheet.create({
     // margin: rMS(10),
     alignSelf: "center",
     borderRadius: rMS(5),
+    marginBottom: rMS(5)
   },
   renderList: {
     flexDirection: "row",
@@ -116,6 +122,7 @@ const styles = StyleSheet.create({
     margin: rMS(10),
     alignItems: "center",
     flex: 1,
+    gap: 5,
   },
   textItem: {
     fontSize: rMS(14),
