@@ -17,6 +17,7 @@ export default function Index() {
   const [list, setList] = useState<any>([]);
   const [editText, setEditText] = useState("");
   const [edit, setEdit] = useState(null);
+  const [text, setText] = useState('')
 
   const addToList = () => {
     if (textValue.length > 0) {
@@ -89,6 +90,7 @@ export default function Index() {
         onChangeText={(text) => setTextValue(text)}
       />
       <Button title="Submit" onPress={addToList} />
+      <Text>{text}</Text>
       <View>
         <FlatList data={list} renderItem={renderItem} />
       </View>
@@ -99,6 +101,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: rMS(10)
     // justifyContent: "center",
     // alignItems: "center",
   },
